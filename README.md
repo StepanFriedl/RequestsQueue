@@ -10,11 +10,6 @@ import RequestsQueue
 ```
 ### Wrap you network request into addRequest() function, which can be called from NetworkMonitor.shared’s requestsQueueManager. You also need to provide the request's ID as a string. This prevents the addition of duplicates to the queue, for example, if the user is repeatedly pressing a button. Example:
 ```swift
-NetworkMonitor.shared.requestsQueueManager.addRequest {
-    URLSession.shared.dataTask(with: wholeURL) { data, response, error in
-        // Your network request logic here
-    }.resume()
-}
 NetworkMonitor.shared.requestsQueueManager.addRequest (requestID: "your request’s ID") {
     URLSession.shared.dataTask(with: wholeURL) { data, response, error in
         // Your network request logic here
