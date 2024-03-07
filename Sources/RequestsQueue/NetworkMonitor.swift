@@ -1,7 +1,7 @@
 import SwiftUI
 import Reachability
 
-class NetworkMonitor: ObservableObject {
+public class NetworkMonitor: ObservableObject {
     static let shared = NetworkMonitor()
     
     var reachability = try? Reachability()
