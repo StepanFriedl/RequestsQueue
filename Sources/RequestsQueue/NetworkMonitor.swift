@@ -4,9 +4,16 @@ import Reachability
 public class NetworkMonitor: ObservableObject {
     static public let shared = NetworkMonitor()
     
+    public var connectionChangedToOnlineAction: () -> Void = {}
+    public var connectionChangedToOfflineAction: () -> Void = {}
+    
     var reachability = try? Reachability()
     
-    @Published var isOnline: Bool = true
+    @Published var isOnline: Bool = true {
+        didSet {
+            isOnline ? connectionChangedToOnlineAction() : connectionChangedToOfflineAction()
+        }
+    }
     @Published public var requestsQueueManager = RequestsQueueManager()
     
     init() {
