@@ -1,6 +1,6 @@
 import Foundation
 
-class RequestsQueueManager: ObservableObject {
+public class RequestsQueueManager: ObservableObject {
     private var requestsQueue: [() -> Void] = []
     
     public func addRequest(_ request: @escaping () -> Void) {

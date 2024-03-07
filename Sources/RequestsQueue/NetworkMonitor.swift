@@ -2,12 +2,12 @@ import SwiftUI
 import Reachability
 
 public class NetworkMonitor: ObservableObject {
-    static let shared = NetworkMonitor()
+    static public let shared = NetworkMonitor()
     
     var reachability = try? Reachability()
     
     @Published var isOnline: Bool = true
-    @Published var requestsQueueManager = RequestsQueueManager()
+    @Published public var requestsQueueManager = RequestsQueueManager()
     
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(reachablityChanged(notification: )), name: .reachabilityChanged, object: reachability)
