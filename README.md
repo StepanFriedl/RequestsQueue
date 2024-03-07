@@ -9,7 +9,7 @@ To integrate the Swift NetworkObserver package into your project, use Swift Pack
 import RequestsQueue
 ```
 ### Wrap you network request into addRequest() function, which can be called from NetworkManager.shared’s requestsQueueManager. Example:
-```Swift
+```swift
 NetworkMonitor.shared.requestsQueueManager.addRequest {
     URLSession.shared.dataTask(with: wholeURL) { data, response, error in
         // Your network request logic here
