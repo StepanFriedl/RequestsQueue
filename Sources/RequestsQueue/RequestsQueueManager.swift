@@ -3,7 +3,7 @@ import Foundation
 public class RequestsQueueManager: ObservableObject {
     private var requestsQueue: [String:() -> Void] = [:]
     
-    public func addRequest(_ request: @escaping () -> Void, requestID: String) {
+    public func addRequest(requestID: String, _ request: @escaping () -> Void) {
         if NetworkMonitor.shared.reachability?.connection != .unavailable {
             request()
         } else {
