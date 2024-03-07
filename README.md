@@ -11,7 +11,6 @@ import RequestsQueue
 ### Wrap you network request into addRequest() function, which can be called from NetworkManager.shared’s requestsQueueManager. Example:
 ```Swift
 NetworkMonitor.shared.requestsQueueManager.addRequest {
-    print(wholeURL)
     URLSession.shared.dataTask(with: wholeURL) { data, response, error in
         // Your network request logic here
     }.resume()
